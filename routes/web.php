@@ -14,7 +14,7 @@
 */
 
 
-$router->group(['prefix' => 'book'], function () use ($router) {
+$router->group(['prefix' => 'books'], function () use ($router) {
     $router->get('/', 'BookController@index');
     $router->post('/', 'BookController@store');
     $router->get('{book}', 'BookController@show');
