@@ -12,9 +12,10 @@ class BookController extends Controller
     use ApiResponser;
 
     public $rules = [
-        'name' => ['required', 'max:250'],
-        'gender' => ['required', 'max:250', 'in:male,female'],
-        'country' => ['required', 'max:250'],
+        'title' => ['required', 'max:250'],
+        'description' => ['required', 'max:250', 'string'],
+        'price' => ['required', 'numeric'],
+        'author_id' => ['required', 'numeric'],
     ];
 
     /**
@@ -43,7 +44,7 @@ class BookController extends Controller
 
     public function show($book)
     {
-        $author = Book::findOrFail($book);
+        $book = Book::findOrFail($book);
 
         return $this->successResponse($book, Response::HTTP_OK);
     }
